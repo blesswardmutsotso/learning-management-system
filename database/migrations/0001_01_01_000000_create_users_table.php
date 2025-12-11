@@ -17,6 +17,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            // New Fields
+            $table->unsignedTinyInteger('role')->default(0); // 0 = general user, 1 = admin
+            $table->string('department')->nullable();        // Department field
+            $table->date('dod')->nullable();                 // Date of deployment / duty
+
             $table->rememberToken();
             $table->timestamps();
         });
